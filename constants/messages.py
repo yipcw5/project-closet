@@ -18,3 +18,9 @@ msg_enter_img_path = """
 Specify local path of image: 
 
 > """
+
+msg_enter_clothing_details = """
+File found. Please enter type of clothing item.
+Possible values: {}
+
+> """
