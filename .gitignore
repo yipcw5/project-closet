@@ -1,3 +1,9 @@
 .gitignore
 .DS_Store
 __pycache__
+*/__pycache__
+.pytest_cache
+pyvenv.cfg
+bin
+lib
+include

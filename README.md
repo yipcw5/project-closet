@@ -4,7 +4,9 @@ Keep track of what's in the closet, in case something gets pushed to the back IR
 
 ## Installations
 
-python3.10+
+Python 3.10+ is required.
+
+`pip3 install -r requirements.txt`
 
 ## Workflow
 

@@ -10,7 +10,7 @@ def add_new():
 
     ## TESTING PURPOSES ONLY
     if img_path == 'test':
-        img_path = './thumbnails/coats/hollister-parka.webp'
+        img_path = '../thumbnails/coats/hollister-parka.webp'
 
     enter_details(img_path)
 
@@ -32,7 +32,7 @@ def enter_details(img_path):
             enter_details(img_path)
 
 def enter_clothing_type_details():
-    cur_types = os.listdir('./thumbnails')
+    cur_types = os.listdir('../thumbnails')
     clothing_type = input(msg_enter_clothing_details.format(cur_types))
     if clothing_type not in cur_types:
         print("ERROR: input not in possible values. Try again.")
