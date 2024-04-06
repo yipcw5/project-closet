@@ -1,3 +1,5 @@
+# Constants e.g. display msgs
+
 msg_greet = """
 
 *****************************************
@@ -16,6 +18,3 @@ msg_enter_img_path = """
 Specify local path of image: 
 
 > """
-
-clothes_list = """
-""".format()

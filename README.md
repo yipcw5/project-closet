@@ -2,6 +2,10 @@
 
 Keep track of what's in the closet, in case something gets pushed to the back IRL and risks being forgotten for eternity.
 
+## Installations
+
+python3.10+
+
 ## Workflow
 
 Input: a pic of a new item of clothing, any format
@@ -14,3 +18,4 @@ Based on categories added
 - Use ML to recognise image inputs: https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
 - Use gRPC calls to trigger daily alerts to enter OOTD entry
 - Somehow make matching outfit suggestions
+- Bags & shoes

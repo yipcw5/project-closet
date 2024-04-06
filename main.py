@@ -1,18 +1,17 @@
 from const import *
+from modules.add_new import add_new
+from modules.view_db import view_db
 
-ans_option = input(msg_greet)
+# Landing page - user to select whether to add or view clothes
+action_item = input(msg_greet)
 
-def read_file(file_name):
-    file_handle = open(file_name)
-    print(file_handle.read())
-    file_handle.close()
-
-match ans_option:
+match action_item:
     case "a":
-        img_path = input(msg_enter_img_path)
-        read_file(img_path)
+        # functionality of modules/add_new
+        add_new()
     case "b":
-        print(clothes_list)
+        # functionality of modules/view_clothes
+        view_db()
     case _:
         print("Error in input. Closing...\n")
-        
+
