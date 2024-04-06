@@ -3,7 +3,7 @@ from modules.add_new import add_new
 from modules.view_db import view_db
 
 # Landing page - user to select whether to add or view clothes
-action_item = input(msg_greet)
+action_item = input(MSG_GREET)
 
 match action_item:
     case "a":

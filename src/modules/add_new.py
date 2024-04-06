@@ -2,11 +2,11 @@
 
 import os
 
-from constants.messages import msg_enter_img_path, msg_enter_clothing_details
+from constants.messages import MSG_ENTER_IMG_PATH, MSG_ENTER_CLOTHING_DETAILS
 from objects.clothing import ClothingItem
 
 def add_new():
-    img_path = input(msg_enter_img_path)
+    img_path = input(MSG_ENTER_IMG_PATH)
 
     ## TESTING PURPOSES ONLY
     if img_path == 'test':
@@ -33,7 +33,7 @@ def enter_details(img_path):
 
 def enter_clothing_type_details():
     cur_types = os.listdir('../thumbnails')
-    clothing_type = input(msg_enter_clothing_details.format(cur_types))
+    clothing_type = input(MSG_ENTER_CLOTHING_DETAILS.format(cur_types))
     if clothing_type not in cur_types:
         print("ERROR: input not in possible values. Try again.")
         enter_clothing_type_details()

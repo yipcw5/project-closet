@@ -1,6 +1,6 @@
 # Constants e.g. display msgs
 
-msg_greet = """
+MSG_GREET = """
 
 *****************************************
 
@@ -14,12 +14,12 @@ What do you want to do?
 
 > """
 
-msg_enter_img_path = """
+MSG_ENTER_IMG_PATH = """
 Specify local path of image: 
 
 > """
 
-msg_enter_clothing_details = """
+MSG_ENTER_CLOTHING_DETAILS = """
 File found. Please enter type of clothing item.
 Possible values: {}
 
