@@ -12,7 +12,7 @@ def add_new():
     if img_path == 'test':
         img_path = '../thumbnails/coats/hollister-parka.webp'
 
-    enter_details(img_path)
+    return enter_details(img_path)
 
 # Check file exists and fill in clothing item details
 def enter_details(img_path):
