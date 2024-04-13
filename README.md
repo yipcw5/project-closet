@@ -12,7 +12,9 @@ cd src
 python3 main.py
 ```
 
-To run unit tests:
+Due to the nature of filepath referencing, do not attempt running `main.py` from the project root folder.
+
+### To run unit tests:
 ```
 export PYTHONPATH=/Documents/GitHub/project-closet:$PYTHONPATH
 pytest --cov=. tests/ --cov-report xml:cov.xml # pytest --cov=. is not enough for Coverage Gutters to display code coverage.
@@ -21,7 +23,16 @@ pytest --cov=. tests/ --cov-report xml:cov.xml # pytest --cov=. is not enough fo
 Recommended extensions:
 Coverage Gutters
 
-Due to the nature of filepath referencing, do not attempt running `main.py` from the project root folder.
+### Local DB
+
+PostgreSQL is used to store info on clothes. To run locally, ensure this has been installed on Homebrew (Mac), along with PGAdmin. (Credits to https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/)
+```
+brew install postgresql
+brew services start postgresql
+
+# Do whatever you need, then ensure you stop running the service:
+brew services stop postgresql
+```
 
 ## Workflow
 
