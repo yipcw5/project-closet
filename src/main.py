@@ -12,7 +12,7 @@ def main():
         case "a":
             # functionality of modules/add_new
             img_path = input(MSG_ENTER_IMG_PATH)
-            add_new(img_path)
+            return add_new(img_path)
         case "b":
             # functionality of modules/view_db
             return view_db()

@@ -17,9 +17,7 @@ def add_new(img_path):
         print(ERR_INVALID_INPUT)
         return 1
 
-    enter_details(img_path)
-    
-    return 0
+    return enter_details(img_path)
 
 # Check file exists and fill in clothing item details
 def enter_details(img_path):

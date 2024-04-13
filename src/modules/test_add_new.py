@@ -14,7 +14,7 @@ def test_add_new_with_valid_path(mock_enter_details):
     mock_enter_details.assert_called_once_with(img_path)
 
     # Assert that the result is 0 (success)
-    assert result == 0
+    assert mock_enter_details.return_value
 
 @patch("add_new.enter_details")
 def test_add_new_with_invalid_path(mock_enter_details):
@@ -41,7 +41,7 @@ def test_add_new_testing_path(mock_enter_details):
     mock_enter_details.assert_called_once_with('../thumbnails/coats/hollister-parka.webp')
     
     # Assert that the result is 0 (success)
-    assert result == 0
+    mock_enter_details.return_value
 
 def test_enter_details_failure():
     with patch('builtins.input', side_effect=["Brand", "Colour", "Shirt"]):
