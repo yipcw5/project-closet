@@ -12,6 +12,15 @@ cd src
 python3 main.py
 ```
 
+To run unit tests:
+```
+export PYTHONPATH=/Documents/GitHub/project-closet:$PYTHONPATH
+pytest --cov=. tests/ --cov-report xml:cov.xml # pytest --cov=. is not enough for Coverage Gutters to display code coverage.
+```
+
+Recommended extensions:
+Coverage Gutters
+
 Due to the nature of filepath referencing, do not attempt running `main.py` from the project root folder.
 
 ## Workflow
