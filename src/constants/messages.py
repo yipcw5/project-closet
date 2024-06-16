@@ -14,13 +14,9 @@ What do you want to do?
 
 > """
 
-MSG_ENTER_IMG_PATH = """
-Specify local path of image: 
+MSG_ENTER_CLOTHING_TYPE = """
+Enter clothing type.
 
-> """
-
-MSG_ENTER_CLOTHING_DETAILS = """
-File found. Please enter type of clothing item.
-Possible values: {}
+Existing types: {}
 
 > """

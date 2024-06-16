@@ -1,4 +1,4 @@
-ID,BRAND,COLOUR,CLOTHING TYPE,FILENAME,WEAR COUNT
+id,brand,colour,clothing_type,filename,wear_count
 1,mango,terracotta,midi,mango-terracotta-midi.jpg,0
 2,monki,black,top,monki-black-top.jpeg,0
 3,zara,,waistcoat,zara-waistcoat.jpeg,0
