@@ -20,3 +20,10 @@ Enter clothing type.
 Existing types: {}
 
 > """
+
+MSG_DB_VIEWER = '''
+Select {} to view:
+{}
+
+Entries: {}
+'''

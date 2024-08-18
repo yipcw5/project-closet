@@ -1,10 +1,10 @@
-RESET_DB = 'DROP TABLE IF EXISTS clothing_type, colours, dates_worn;'
+RESET_DB = 'DROP TABLE IF EXISTS clothing_entry, colours, dates_worn;'
 
 INIT_TABLES = '''
 CREATE TABLE clothing_entry(
     clothing_id SERIAL PRIMARY KEY,
     brand_name VARCHAR(50) NOT NULL,
-    clothing_type VARCHAR(50) NOT NULL,
+    clothing_subtype VARCHAR(50) NOT NULL,
     filename TEXT NOT NULL,
     date_bought DATE,
     wear_count INTEGER DEFAULT 0,
@@ -43,19 +43,19 @@ CREATE TABLE clothing_descriptions (
 );
 '''
 
-STARTER_CLOTHES = 'INSERT INTO clothing_entries (brand_name, clothing_type, date_bought) VALUES (%s) RETURNING id'
+STARTER_CLOTHES = 'INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) VALUES (%s) RETURNING id'
 # clothing_id = cur.fetchone()[0]
 STARTER_DESCRIPTION = 'INSERT INTO description_fields (clothing_id, category_id) VALUES (%s, %s) RETURNING id'
 STARTER_DATES_WORN = 'INSERT INTO dates_worn (clothing_id, date)'
 # sample execution: cur.execute(STARTER_DESCRIPTION, clothing_id, )
 
 # Note: relative path is wrt src/main.py
-INIT_FROM_CSV = "COPY clothing_entry (brand_name, clothing_type, filename, date_bought, date_removed) FROM '/Users/choiwanyip/Documents/GitHub/project-closet/src/databases/clothing_inventory.csv' DELIMITER ',' CSV HEADER;"
+INIT_FROM_CSV = "COPY clothing_entry (brand_name, clothing_subtype, filename, date_bought, date_removed) FROM '/Users/choiwanyip/Documents/GitHub/project-closet/src/databases/clothing_inventory.csv' DELIMITER ',' CSV HEADER;"
 
 '''
 EXAMPLE ENTRY ADD
 
-INSERT INTO clothing_entry (brand_name, clothing_type, date_bought) VALUES (%s, %s, %s) RETURNING clothing_id;
+INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) VALUES (%s, %s, %s) RETURNING clothing_id;
 
 clothing_id = cur.fetchone()[0]
 
@@ -69,4 +69,6 @@ INSERT INTO clothing_descriptions (clothing_id, value_id) VALUES
 
 '''
 
-VIEW_CLOTHING_ENTRIES = "SELECT * FROM clothing_entry;"
+VIEW_CLOTHING_ENTRIES = "SELECT * FROM clothing_entry"
+VIEW_CLOTHING_ENTRIES_BY_SUBTYPE = " WHERE clothing_subtype IN (%s)"
+VIEW_TABLE_COUNT = "SELECT COUNT(*) FROM clothing_entry"
