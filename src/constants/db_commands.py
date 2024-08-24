@@ -24,19 +24,22 @@ CREATE TABLE colours(
     colour VARCHAR(50) NOT NULL
 );
 
+-- e.g. Colour, Material; initiated only once
 CREATE TABLE description_categories(
     category_id SERIAL PRIMARY KEY,
     category_name VARCHAR(50) NOT NULL UNIQUE
 );
 INSERT INTO description_categories (category_name) VALUES ('Colour'), ('Pattern'), ('Other');
 
+-- Description terms e.g. Blue, Stripey
 CREATE TABLE description_values(
     value_id SERIAL PRIMARY KEY,
     category_id INTEGER REFERENCES description_categories(category_id) ON DELETE CASCADE,
     description_value VARCHAR(50)
 );
 
-CREATE TABLE clothing_descriptions (
+-- Assign description terms/values by description_category
+CREATE TABLE description_categories_map (
     clothing_id INTEGER REFERENCES clothing_entry(clothing_id) ON DELETE CASCADE,
     value_id INTEGER REFERENCES description_values(value_id) ON DELETE CASCADE,
     PRIMARY KEY (clothing_id, value_id)
@@ -63,12 +66,12 @@ INSERT INTO description_values (category_id, description_value) VALUES
 (1, 'Blue'),
 (2, 'Flannel');
 
-INSERT INTO clothing_descriptions (clothing_id, value_id) VALUES
+INSERT INTO description_categories_map (clothing_id, value_id) VALUES
 (1, 1),
 (1, 2);
 
 '''
 
-VIEW_CLOTHING_ENTRIES = "SELECT * FROM clothing_entry"
-VIEW_CLOTHING_ENTRIES_BY_SUBTYPE = " WHERE clothing_subtype IN (%s)"
-VIEW_TABLE_COUNT = "SELECT COUNT(*) FROM clothing_entry"
+VIEW_CLOTHING_ENTRIES = "SELECT * FROM clothing_entry WHERE date_removed IS NULL"
+VIEW_CLOTHING_ENTRIES_BY_SUBTYPE = " AND clothing_subtype IN (%s)"
+VIEW_TABLE_COUNT = "SELECT COUNT(*) FROM clothing_entry WHERE date_removed IS NULL"
