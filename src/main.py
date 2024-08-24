@@ -1,7 +1,7 @@
 from constants.messages import *
 from constants.errors import ERR_INVALID_INPUT
 #from modules.add_new import add_new
-from modules.view_db import view_db
+from modules.view_db.view_db import view_db_main
 
 def main():
 
@@ -15,7 +15,7 @@ def main():
             pass
         case "b":
             # functionality of modules/view_db
-            return view_db()
+            return view_db_main()
         case _:
             print(ERR_INVALID_INPUT)
             return 1
