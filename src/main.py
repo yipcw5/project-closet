@@ -1,21 +1,21 @@
 from constants.messages import *
 from constants.errors import ERR_INVALID_INPUT
-from modules.add_new import add_new
-from modules.view_db import view_db
+#from modules.add_new import add_new
+from modules.view_db.view_db import view_db_main
 
 def main():
-    
+
     # Landing page - user to select whether to add or view clothes
     action_item = input(MSG_GREET)
 
     match action_item:
         case "a":
             # functionality of modules/add_new
-            img_path = input(MSG_ENTER_IMG_PATH)
-            return add_new(img_path)
+            #return add_new()
+            pass
         case "b":
             # functionality of modules/view_db
-            return view_db()
+            return view_db_main()
         case _:
             print(ERR_INVALID_INPUT)
             return 1
