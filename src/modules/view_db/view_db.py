@@ -1,11 +1,15 @@
-# Handles view of entries and properties for clothing items
-# User permissions: GRANT pg_read_server_files TO your_username;
+'''
+Handles view of entries and properties for clothing items
+User permissions: GRANT pg_read_server_files TO your_username;
+'''
+
 import psycopg2
-from constants.errors import ERR_INVALID_INPUT, ERR_DB_CONN, ERR_DB_TABLES_INIT, ERR_DB_QUERY
-from constants.messages import MSG_DB_VIEWER
-from constants.db_commands import *
-from objects.clothing import ClothingEntry
-from modules.view_db.config import view_db_config_template, clothing_type_to_sub_dict
+from src.constants.errors import ERR_INVALID_INPUT, ERR_DB_CONN, ERR_DB_TABLES_INIT, ERR_DB_QUERY
+from src.constants.messages import MSG_DB_VIEWER
+from src.constants.db_commands.init_db import RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
+from src.constants.db_commands.view_by_entry import VIEW_CLOTHING_ENTRIES_BY_SUBTYPE, VIEW_TABLE_COUNT
+from src.objects.clothing import ClothingEntry
+from src.modules.view_db.config import view_db_config_template, clothing_type_to_sub_dict
 
 def view_db_main():
 
@@ -83,7 +87,7 @@ def view_db_by_level_all(cursor, view_db_config, viewing_type, category_list):
     
     # Request user choice and check if exists as a category
     chosen_category = input("> ")
-    if chosen_category not in res_list: 
+    if chosen_category not in res_list:
         raise ValueError(f"{ERR_INVALID_INPUT}: '{chosen_category}'")
     view_db_config[viewing_type]['chosen_category'] = chosen_category
 
