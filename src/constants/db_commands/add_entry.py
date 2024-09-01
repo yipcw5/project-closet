@@ -1,7 +1,12 @@
-STARTER_CLOTHES = '''
-INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) 
+'''
+Constants containing SQL queries to my_closet: add individual clothing entries
+'''
+
+INSERT_INTO_CLOTHING_ENTRY = '''
+INSERT INTO clothing_entry (clothing_id, brand_name, clothing_subtype, filename, date_bought, date_removed) 
 VALUES (%s) RETURNING id'
 '''
+
 # clothing_id = cur.fetchone()[0]
 STARTER_DESCRIPTION = '''
 INSERT INTO description_fields (clothing_id, category_id) 
