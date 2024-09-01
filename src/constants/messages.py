@@ -25,5 +25,5 @@ MSG_DB_VIEWER = '''
 Select {} to view:
 {}
 
-Entries for keywords {}: {}
+Entries for keyword {}: {}
 '''

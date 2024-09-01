@@ -1,5 +1,6 @@
 coverage
 pandas
+# psycopg2 - installing this will cause 'error symbol not found' issue. See https://stackoverflow.com/questions/52770689/psycopg2-error-symbol-not-found-pqbackendpid
 psycopg2-binary
 pytest
 pytest-cov

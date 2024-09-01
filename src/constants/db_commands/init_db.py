@@ -1,3 +1,7 @@
+'''
+Constants containing SQL queries to my_closet: initialisation
+'''
+
 RESET_DB = 'DROP TABLE IF EXISTS clothing_entry, colours, dates_worn;'
 
 INIT_TABLES = '''
@@ -46,19 +50,17 @@ CREATE TABLE description_categories_map (
 );
 '''
 
-STARTER_CLOTHES = 'INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) VALUES (%s) RETURNING id'
-# clothing_id = cur.fetchone()[0]
-STARTER_DESCRIPTION = 'INSERT INTO description_fields (clothing_id, category_id) VALUES (%s, %s) RETURNING id'
-STARTER_DATES_WORN = 'INSERT INTO dates_worn (clothing_id, date)'
-# sample execution: cur.execute(STARTER_DESCRIPTION, clothing_id, )
-
-# Note: relative path is wrt src/main.py
-INIT_FROM_CSV = "COPY clothing_entry (brand_name, clothing_subtype, filename, date_bought, date_removed) FROM '/Users/choiwanyip/Documents/GitHub/project-closet/src/databases/clothing_inventory.csv' DELIMITER ',' CSV HEADER;"
+INIT_FROM_CSV = '''
+COPY clothing_entry (brand_name, clothing_subtype, filename, date_bought, date_removed) 
+FROM '/Users/choiwanyip/Documents/GitHub/project-closet/src/databases/clothing_inventory.csv' 
+DELIMITER ',' CSV HEADER;
+'''
 
 '''
 EXAMPLE ENTRY ADD
 
-INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) VALUES (%s, %s, %s) RETURNING clothing_id;
+INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) 
+VALUES (%s, %s, %s) RETURNING clothing_id;
 
 clothing_id = cur.fetchone()[0]
 
@@ -72,6 +74,7 @@ INSERT INTO description_categories_map (clothing_id, value_id) VALUES
 
 '''
 
-VIEW_CLOTHING_ENTRIES = "SELECT * FROM clothing_entry WHERE date_removed IS NULL"
-VIEW_CLOTHING_ENTRIES_BY_SUBTYPE = " AND clothing_subtype IN (%s)"
-VIEW_TABLE_COUNT = "SELECT COUNT(*) FROM clothing_entry WHERE date_removed IS NULL"
+VIEW_CLOTHING_ENTRIES = '''
+SELECT * FROM clothing_entry 
+WHERE date_removed IS NULL
+'''
