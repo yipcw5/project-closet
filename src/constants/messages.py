@@ -14,10 +14,10 @@ What do you want to do?
 
 > """
 
-MSG_ENTER_CLOTHING_TYPE = """
-Enter clothing type.
-
-Existing types: {}
+MSG_ADD_NEW_OPTIONS = """
+Select an action to take:
+(1) Add new clothing entry from scratch
+(2) Refresh from available template
 
 > """
 
