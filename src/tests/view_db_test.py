@@ -1,3 +1,5 @@
+# Created using ChatGPT
+
 import pytest
 from unittest.mock import patch, MagicMock
 import psycopg2
