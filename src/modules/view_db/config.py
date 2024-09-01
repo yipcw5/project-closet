@@ -1,6 +1,6 @@
 # Config of options presented to user
 
-from constants.db_commands import VIEW_TABLE_COUNT
+from constants.db_commands.view_by_entry import VIEW_TABLE_COUNT
 
 view_db_config_template = {
     'clothing type': {

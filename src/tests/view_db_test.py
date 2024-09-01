@@ -4,8 +4,8 @@ import pytest
 from unittest.mock import patch, MagicMock
 import psycopg2
 
-from constants.db_commands import *
-from constants.errors import ERR_INVALID_INPUT, ERR_DB_CONN, ERR_DB_TABLES_INIT, ERR_DB_QUERY
+from constants.db_commands.init_db import RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
+from constants.errors import ERR_DB_CONN, ERR_DB_TABLES_INIT
 from modules.view_db.view_db import init_db
 
 def test_init_db_success():
