@@ -1,6 +1,6 @@
 import psycopg2
 from constants.errors import ERR_DB_CONN, ERR_DB_TABLES_INIT
-from constants.db_commands.init_db import RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
+from constants.db_commands.init_db import INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
 
 def init_db():
     '''Connect to db and initialise tables'''
@@ -15,7 +15,7 @@ def init_db():
 
     print("[INFO] Connection to My_Closet successful. Initiating tables...")
 
-    init_db_queries = [RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES]
+    init_db_queries = [INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES]
     try:
         for query in init_db_queries:
             execute_query(conn, query)
@@ -24,7 +24,7 @@ def init_db():
     
     return conn
 
-def execute_query(conn, query, params="", fetch_option=""):
+def execute_query(conn, query, params='', fetch_option=''):
     '''Execute string query as SQL command'''
     with conn.cursor() as cursor:
         cursor.execute(query, params)

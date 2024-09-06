@@ -4,7 +4,6 @@ Add new item of clothing to my_closet db
 
 from constants.errors import ERR_EMPTY_INPUT
 from constants.db_commands.init_db import INIT_TABLES
-from constants.db_commands.add_new_commands import
 
 def add_new_main(conn):
     '''Add new clothing entry from scratch'''
