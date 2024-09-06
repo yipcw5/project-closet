@@ -1,5 +1,5 @@
 '''
-Constants containing SQL queries to my_closet: add individual clothing entries
+Constants containing SQL queries to my_closet: add_new module
 '''
 
 INSERT_INTO_CLOTHING_ENTRY = '''

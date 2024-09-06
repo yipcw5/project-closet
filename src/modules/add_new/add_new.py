@@ -1,12 +1,10 @@
 '''
-Add new item of clothing
-TODO: 
-- change dependency of add_new_entry from INIT_TABLES string to actual db and check if tables and fields exist
-- separate RESET_DB, INIT_TABLES as new module 'refresh'
+Add new item of clothing to my_closet db
 '''
 
 from constants.errors import ERR_EMPTY_INPUT
 from constants.db_commands.init_db import INIT_TABLES
+from constants.db_commands.add_new_commands import
 
 def add_new_main(conn):
     '''Add new clothing entry from scratch'''
@@ -14,7 +12,6 @@ def add_new_main(conn):
     field_values = []
     field_values = customise_query_by_line(field_values, INIT_TABLES, 'wear_count')
     print(field_values)
-    
 
 def customise_query_by_line(field_values, query_string, omitted_field):
     '''Split lines in query string, manipulate further and request user input'''
