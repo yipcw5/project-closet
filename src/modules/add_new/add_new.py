@@ -2,36 +2,68 @@
 Add new item of clothing to my_closet db
 '''
 
-from constants.errors import ERR_EMPTY_INPUT
-from constants.db_commands.init_db import INIT_TABLES
+import os.path
+from constants.errors import ERR_EMPTY_INPUT, ERR_INVALID_INPUT
+from constants.messages import SUCCESS_MSG_ADD_NEW
+from constants.db_commands.add_new_commands import INSERT_INTO_CLOTHING_ENTRY
+from modules.helper.db_helper import execute_query, string_to_date
+from .config import clothing_entry_columns
 
 def add_new_main(conn):
     '''Add new clothing entry from scratch'''
-    # Obtain INIT_TABLES constant accessible by word and skip entry of wear_count field
-    field_values = []
-    field_values = customise_query_by_line(field_values, INIT_TABLES, 'wear_count')
-    print(field_values)
 
-def customise_query_by_line(field_values, query_string, omitted_field):
-    '''Split lines in query string, manipulate further and request user input'''
-    query_fields = query_string.strip().splitlines()[1:-1]
-    print(query_fields)
-    for field_line in query_fields:
-        # Remove leading/trailing spaces and commas then split words of query
-        field_line = field_line.strip().rstrip(',')
-        field_parts = field_line.split()
-
-        # Convert field name into readable for user
-        field_name = field_parts[0]
-        if field_name == omitted_field:
-            continue
-        formatted_field_name = field_name.replace('_', ' ')
-
-        field_value = input(f"Insert {formatted_field_name}: ")
-        if not field_value and "NOT NULL" in field_line:
-            # Require non-empty input if NOT NULL
-            raise ValueError(ERR_EMPTY_INPUT)
+    clothing_entry_values = input_clothing_entry_values(clothing_entry_columns)
     
-        field_values.append(field_value)
+    # Reformat clothing_entry_columns/values into SQL query string
+    clothing_entry_columns_keys = ", ".join(clothing_entry_columns.keys())
+    clothing_entry_values_string = "'" + "', '".join(clothing_entry_values) + "'"
+
+    # Build + execute SQL query to add user input
+    insert_into_clothing_entry_values = INSERT_INTO_CLOTHING_ENTRY % (clothing_entry_columns_keys, clothing_entry_values_string)
+    print(insert_into_clothing_entry_values)
     
-    return field_values
+    clothing_entry_id = execute_query(conn, insert_into_clothing_entry_values, (), 'one')
+
+    print(SUCCESS_MSG_ADD_NEW.format("clothing_entry", clothing_entry_id))
+
+    # TODO: add user input for other tables, e.g. desc_categories
+
+def input_clothing_entry_values(clothing_entry_cols):
+    '''Obtain user input of clothing_entry values to add'''
+    clothing_entry_values = []
+    for column in clothing_entry_cols:
+        # User input for each column name
+        user_value = input(f"Insert {column}: ")
+        
+        if not user_value and clothing_entry_cols[column]:
+            # If field is NOT NULL but user input is empty
+            raise ValueError(f"{ERR_EMPTY_INPUT}: '{user_value}'")
+        
+        if column == "filename" and not os.path.isfile("./thumbnails/" + user_value):
+            # Check if thumbnail file exists
+            raise ValueError(f"{ERR_INVALID_INPUT}: '{user_value}' does not exist at /thumbnails/ directory")
+
+        if column == "date_bought" and not string_to_date(user_value):
+            # date format needs to follow rule
+            raise ValueError(f"{ERR_INVALID_INPUT}: '{user_value}' does not follow format yyyy-mm-dd")
+        
+        clothing_entry_values.append(user_value)
+    
+    return clothing_entry_values
+
+# Input this block straight into end of add_new_main for debugging purposes; undo-ing an insert immediately after
+"""
+    query = '''SELECT * FROM clothing_entry
+    ORDER BY clothing_id DESC
+    LIMIT 1;'''
+    res = execute_query(conn, query, (), 'one')
+    print("PROOF OF ADDITION: ", res)
+
+    query2 = '''DELETE FROM clothing_entry
+    WHERE clothing_id = (SELECT clothing_id FROM clothing_entry ORDER BY clothing_id DESC LIMIT 1);'''
+    execute_query(conn, query2)
+    print("DELETE SUCCESS")
+
+    res = execute_query(conn, query, (), 'all')
+    print("PROOF OF DELETION: ", res)
+"""

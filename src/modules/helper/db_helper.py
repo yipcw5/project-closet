@@ -1,3 +1,6 @@
+'''Helper functions for db manipulation'''
+
+from datetime import datetime
 import psycopg2
 from constants.errors import ERR_DB_CONN, ERR_DB_TABLES_INIT
 from constants.db_commands.init_db import INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
@@ -24,14 +27,23 @@ def init_db():
     
     return conn
 
-def execute_query(conn, query, params='', fetch_option=''):
+def execute_query(conn, query, params=(), fetch_option=''):
     '''Execute string query as SQL command'''
     with conn.cursor() as cursor:
         cursor.execute(query, params)
         if not fetch_option:
             return
-        elif fetch_option == "one":
+        elif fetch_option == 'one':
             result = cursor.fetchone()
         else:
             result = cursor.fetchall()
         return result
+
+def string_to_date(date_str):
+    '''Check if format is yyyy-mm-dd'''
+    try:
+        # Try to parse the date string
+        date = datetime.strptime(date_str, '%Y-%m-%d').date()
+        return date
+    except ValueError:
+        return None

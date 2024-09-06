@@ -14,12 +14,7 @@ What do you want to do?
 
 > """
 
-MSG_ADD_NEW_OPTIONS = """
-Select an action to take:
-(1) Add new clothing entry from scratch
-(2) Refresh from available template
-
-> """
+SUCCESS_MSG_ADD_NEW = "[INFO] Sucessfully added entry to {} with id: {}"
 
 MSG_DB_VIEWER = '''
 Select {} to view:
