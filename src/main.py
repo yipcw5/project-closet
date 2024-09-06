@@ -6,7 +6,7 @@ from modules.helper.db_helper import init_db
 
 def main():
 
-    conn, cursor = init_db()
+    conn = init_db()
 
     # Landing page - user to select whether to add or view clothes
     action_item = input(MSG_GREET)
@@ -14,12 +14,14 @@ def main():
     match action_item:
         case "a":
             # functionality of modules/add_new
-            return add_new_main(conn, cursor)
+            add_new_main(conn)
         case "b":
             # functionality of modules/view_db
-            return view_db_main(conn, cursor)
+            view_db_main(conn)
         case _:
             raise ValueError(f"{ERR_INVALID_INPUT}: '{action_item}'")
+        
+    conn.close()
 
 if __name__ == "__main__":
     main()

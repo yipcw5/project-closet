@@ -12,9 +12,9 @@ from objects.clothing import ClothingEntry
 from modules.view_db.config import view_db_config_template, clothing_type_to_sub_dict
 from modules.helper.db_helper import init_db
 
-def view_db_main(conn, cursor):
+def view_db_main(conn):
     '''Initialise db and take user to view clothing entries by defined levels (viewing_type)'''
-
+    cursor = conn.cursor()
     view_db_config = view_db_config_template
     view_db_config['clothing type']['category_list'] = clothing_type_to_sub_dict.keys()
     keys_list = list(view_db_config.keys())

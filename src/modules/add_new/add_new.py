@@ -5,11 +5,10 @@ TODO:
 - separate RESET_DB, INIT_TABLES as new module 'refresh'
 '''
 
-from constants.errors import ERR_INVALID_INPUT, ERR_EMPTY_INPUT
-from constants.messages import MSG_ADD_NEW_OPTIONS
+from constants.errors import ERR_EMPTY_INPUT
 from constants.db_commands.init_db import INIT_TABLES
 
-def add_new_main(conn, cursor):
+def add_new_main(conn):
     '''Add new clothing entry from scratch'''
     # Obtain INIT_TABLES constant accessible by word and skip entry of wear_count field
     field_values = []
