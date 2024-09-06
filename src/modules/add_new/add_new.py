@@ -9,29 +9,13 @@ from constants.errors import ERR_INVALID_INPUT, ERR_EMPTY_INPUT
 from constants.messages import MSG_ADD_NEW_OPTIONS
 from constants.db_commands.init_db import INIT_TABLES
 
-def add_new_main():
-    '''Landing page for available options'''
-    add_new_action = input(MSG_ADD_NEW_OPTIONS)
-    match add_new_action:
-        case '1':
-            return add_new_entry()
-        case '2':
-            return refresh_from_db()
-        case _:
-            raise ValueError(f"{ERR_INVALID_INPUT}: '{add_new_action}'")
-
-def add_new_entry():
+def add_new_main(conn, cursor):
     '''Add new clothing entry from scratch'''
-
     # Obtain INIT_TABLES constant accessible by word and skip entry of wear_count field
     field_values = []
     field_values = customise_query_by_line(field_values, INIT_TABLES, 'wear_count')
     print(field_values)
     
-
-def refresh_from_db():
-    '''Populate db with existing template (databases/clothing_inventory.csv)'''
-    pass
 
 def customise_query_by_line(field_values, query_string, omitted_field):
     '''Split lines in query string, manipulate further and request user input'''
