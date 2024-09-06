@@ -27,10 +27,10 @@ def init_db():
     
     return conn
 
-def execute_query(conn, query, params=(), fetch_option=''):
+def execute_query(conn, query, fetch_option=''):
     '''Execute string query as SQL command'''
     with conn.cursor() as cursor:
-        cursor.execute(query, params)
+        cursor.execute(query)
         if not fetch_option:
             return
         elif fetch_option == 'one':

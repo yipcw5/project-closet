@@ -13,17 +13,14 @@ def add_new_main(conn):
     '''Add new clothing entry from scratch'''
 
     clothing_entry_values = input_clothing_entry_values(clothing_entry_columns)
-    
+
     # Reformat clothing_entry_columns/values into SQL query string
     clothing_entry_columns_keys = ", ".join(clothing_entry_columns.keys())
     clothing_entry_values_string = "'" + "', '".join(clothing_entry_values) + "'"
 
     # Build + execute SQL query to add user input
     insert_into_clothing_entry_values = INSERT_INTO_CLOTHING_ENTRY % (clothing_entry_columns_keys, clothing_entry_values_string)
-    print(insert_into_clothing_entry_values)
-    
-    clothing_entry_id = execute_query(conn, insert_into_clothing_entry_values, (), 'one')
-
+    clothing_entry_id = execute_query(conn, insert_into_clothing_entry_values, 'one')
     print(SUCCESS_MSG_ADD_NEW.format("clothing_entry", clothing_entry_id))
 
     # TODO: add user input for other tables, e.g. desc_categories
@@ -56,7 +53,7 @@ def input_clothing_entry_values(clothing_entry_cols):
     query = '''SELECT * FROM clothing_entry
     ORDER BY clothing_id DESC
     LIMIT 1;'''
-    res = execute_query(conn, query, (), 'one')
+    res = execute_query(conn, query, 'one')
     print("PROOF OF ADDITION: ", res)
 
     query2 = '''DELETE FROM clothing_entry
@@ -64,6 +61,6 @@ def input_clothing_entry_values(clothing_entry_cols):
     execute_query(conn, query2)
     print("DELETE SUCCESS")
 
-    res = execute_query(conn, query, (), 'all')
+    res = execute_query(conn, query, 'all')
     print("PROOF OF DELETION: ", res)
 """
