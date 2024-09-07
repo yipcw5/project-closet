@@ -18,7 +18,7 @@ Add new item of clothing to my_closet db
 
 import os.path
 from constants.errors import ERR_EMPTY_INPUT, ERR_INVALID_INPUT
-from constants.messages import SUCCESS_MSG_ADD_NEW
+from constants.messages import MSG_ADD_NEW_SUCCESS, MSG_MISSING_INPUT_OK, DEBUG_DESCRIPTION_CATEGORIES_MAP_ADDED, DEBUG_DESCRIPTION_VALUES_ADDED
 from constants.db_commands.add_new_commands import INSERT_INTO_CLOTHING_ENTRY, SELECT_DESCRIPTION_CATEGORIES_NAMES, INSERT_INTO_DESCRIPTION_VALUES, INSERT_INTO_DESCRIPTION_CATEGORIES_MAP
 from modules.helper.db_helper import execute_query, string_to_date
 from .config import clothing_entry_columns
@@ -36,14 +36,11 @@ def add_new_main(conn):
     # Build + execute SQL query to add user input
     insert_into_clothing_entry_values = INSERT_INTO_CLOTHING_ENTRY % (clothing_entry_columns_keys, clothing_entry_values_string)
     clothing_id = execute_query(conn, insert_into_clothing_entry_values, 'one')
-    print(SUCCESS_MSG_ADD_NEW.format("clothing_entry", clothing_id[0]))
+    print(MSG_ADD_NEW_SUCCESS.format("clothing_entry", clothing_id[0]))
 
     # User input: description_categories
     description_categories_names = execute_query(conn, SELECT_DESCRIPTION_CATEGORIES_NAMES, 'all')
     input_description_category_values(conn, description_categories_names, clothing_id)
-
-    # Success
-    return
 
 def input_clothing_entry_values(clothing_entry_cols):
     '''Obtain user input of clothing_entry values to add'''
@@ -73,8 +70,9 @@ def input_description_category_values(conn, description_categories_names, clothi
     for i, name in enumerate(description_categories_names):
         user_value = input(f"Insert {name[0]}s (separated by commas or leave blank): ")
         
-        if not user_value: 
+        if not user_value:
             # If blank input, skip onto next category
+            print(MSG_MISSING_INPUT_OK)
             continue
 
         try:
@@ -87,12 +85,10 @@ def input_description_category_values(conn, description_categories_names, clothi
             insert_into_description_values_query = INSERT_INTO_DESCRIPTION_VALUES % (i+1, f"'{value}'")
             value_id = execute_query(conn, insert_into_description_values_query, 'one')
 
-            print("[DEBUG] populated description_values with (value_id, value): ({}, {})".format(value_id[0], value))
+            print(DEBUG_DESCRIPTION_VALUES_ADDED.format(value_id[0], value))
 
             # Add clothing_id-description_value_id pair e.g. (1, 1)
             insert_into_description_categories_map_query = INSERT_INTO_DESCRIPTION_CATEGORIES_MAP % (clothing_id[0], value_id[0])
             execute_query(conn, insert_into_description_categories_map_query)
 
-            print("[DEBUG] populated description_categories_map with (clothing_id, value_id): ({}, {})".format(clothing_id[0], value_id[0]))
-
-    return
+            print(DEBUG_DESCRIPTION_CATEGORIES_MAP_ADDED.format(clothing_id[0], value_id[0]))
