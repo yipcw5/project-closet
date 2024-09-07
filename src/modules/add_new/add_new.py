@@ -1,6 +1,20 @@
-'''
+"""
 Add new item of clothing to my_closet db
-'''
+[debugging purposes]
+    query = '''SELECT * FROM clothing_entry
+    ORDER BY clothing_id DESC
+    LIMIT 1;'''
+    res = execute_query(conn, query, 'one')
+    print("PROOF OF ADDITION: ", res)
+
+    query2 = '''DELETE FROM clothing_entry
+    WHERE clothing_id = (SELECT clothing_id FROM clothing_entry ORDER BY clothing_id DESC LIMIT 1);'''
+    execute_query(conn, query2)
+    print("DELETE SUCCESS")
+
+    res = execute_query(conn, query, 'all')
+    print("PROOF OF DELETION: ", res)
+"""
 
 import os.path
 from constants.errors import ERR_EMPTY_INPUT, ERR_INVALID_INPUT
@@ -82,20 +96,3 @@ def input_description_category_values(conn, description_categories_names, clothi
             print("[DEBUG] populated description_categories_map with (clothing_id, value_id): ({}, {})".format(clothing_id[0], value_id[0]))
 
     return
-
-# Input this block straight into end of add_new_main for debugging purposes; undo-ing an insert immediately after
-"""
-    query = '''SELECT * FROM clothing_entry
-    ORDER BY clothing_id DESC
-    LIMIT 1;'''
-    res = execute_query(conn, query, 'one')
-    print("PROOF OF ADDITION: ", res)
-
-    query2 = '''DELETE FROM clothing_entry
-    WHERE clothing_id = (SELECT clothing_id FROM clothing_entry ORDER BY clothing_id DESC LIMIT 1);'''
-    execute_query(conn, query2)
-    print("DELETE SUCCESS")
-
-    res = execute_query(conn, query, 'all')
-    print("PROOF OF DELETION: ", res)
-"""
