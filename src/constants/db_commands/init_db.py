@@ -20,12 +20,6 @@ CREATE TABLE IF NOT EXISTS dates_worn(
     season VARCHAR(50)
 );
 
-CREATE TABLE IF NOT EXISTS colours(
-    colour_id SERIAL PRIMARY KEY,
-    clothing_id INTEGER REFERENCES clothing_entry(clothing_id) ON DELETE CASCADE,
-    colour VARCHAR(50) NOT NULL
-);
-
 -- e.g. Colour, Material; initiated only once
 CREATE TABLE IF NOT EXISTS description_categories(
     category_id SERIAL PRIMARY KEY,
@@ -55,24 +49,6 @@ INIT_FROM_CSV = '''
 COPY clothing_entry (brand_name, clothing_subtype, filename, date_bought, date_removed) 
 FROM '/Users/choiwanyip/Documents/GitHub/project-closet/src/databases/clothing_inventory.csv' 
 DELIMITER ',' CSV HEADER;
-'''
-
-'''
-EXAMPLE ENTRY ADD
-
-INSERT INTO clothing_entry (brand_name, clothing_subtype, date_bought) 
-VALUES (%s, %s, %s) RETURNING clothing_id;
-
-clothing_id = cur.fetchone()[0]
-
-INSERT INTO description_values (category_id, description_value) VALUES
-(1, 'Blue'),
-(2, 'Flannel');
-
-INSERT INTO description_categories_map (clothing_id, value_id) VALUES
-(1, 1),
-(1, 2);
-
 '''
 
 VIEW_CLOTHING_ENTRIES = '''
