@@ -4,7 +4,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 import psycopg2
 
-from constants.db_commands.init_db import RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
+from constants.db_commands.init_db import INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES
 from constants.errors import ERR_DB_CONN, ERR_DB_TABLES_INIT
 from modules.view_db.view_db import init_db
 
@@ -23,7 +23,7 @@ def test_init_db_success():
         assert cursor == mock_cursor
 
         # Check that the correct queries were executed
-        expected_queries = [RESET_DB, INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES]
+        expected_queries = [INIT_TABLES, INIT_FROM_CSV, VIEW_CLOTHING_ENTRIES]
         for query in expected_queries:
             mock_cursor.execute.assert_any_call(query)
 
