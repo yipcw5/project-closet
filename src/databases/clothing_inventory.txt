@@ -1,0 +1,82 @@
+brand_name,clothing_subtype,filename,date_bought,date_removed,colour,pattern
+mango,midi,mango-terracotta-midi.jpg,2023-05-19,terracotta,mono
+monki,top,monki-black-top.jpeg,2023-09-28,black,knitted
+zara,waistcoat,zara-waistcoat.jpeg,2022-12-29,2024-06-01,beige,mono
+hollister,flannel,hollister-flannel.jpg,,,blue,flannel
+monki,maxi,monki-black-maxi.jpeg,2023-08-14,2024-06-01,,black,mono
+gap,denim,gap-denim-jacket.avif,2021-05-16,,pale blue,mono
+zara,coat,zara-grey-coat.jpeg,2022-09-01,,grey,mono
+hollister,tshirt,hollister-black-tshirt.jpeg,,,black,print
+uniqlo,jeggings,uniqlo-navy-jeggings.jpeg,2022-04-28,,blue,mono
+apricot,jumper,apricot-block-jumper.jpg,2023-12-16,,red&black%grey,block
+guess,midi,guess-black-midi.jpeg,2019-12-26,,black,glitter
+shein,long sleeve,f21-black-top.jpg,2018-11-25,,black,mono
+hollister,jumper,hollister-white-jumper.jpg,2022-06-09,,white,knitted
+hm,crop,hm-silver-crop.jpeg,2017-10-01,,silver,shiny
+hollister,sherpa,hollister-beige-sherpa.jpeg,2020-11-28,,beige,wool
+pullandbear,crop,pullandbear-red-crop.jpeg,2024-01-26,,red,mini print
+bershka,crop,bershka-black-crop.jpg,2021-04-01,,black,mini print
+uniqlo,jeggings,uniqlo-black-jeggings.jpeg,2022-04-28,2024-07-20,black,mono
+hm,skirt,hm-pencil-skirt.png,2016-01-01,,black,mono
+padini,jumper,padini-block-jumper.jpg,2022-07-08,,brown&black,block
+zara,bomber,zara-bomber.jpeg,2018-08-01,,olive,mono
+hm,sleeveless,hm-boho-top.jpeg,2016-05-07,,black&white,boho
+cw,jumper,cw-lilac-jumper.png,2023-08-13,,lilac,print
+mango,long sleeve,mango-grey-top.jpg,2023-11-25,,dark grey,ribbed
+hm,jumper,hm-red-jumper.jpeg,2021-05-01,,red,mono
+monki,midi,monki-floral-midi.webp,2023-04-01,,blue&black&green,print
+suisui,top,suisui-red-top.jpg,2024-01-03,,red,mono
+bershka,jacket,bershka-cream-jacket.jpeg,2022-12-26,2024-06-01,cream,mono
+hollister,jumper,hollister-wool-jumper.jpg,2023-04-07,,beige,knitted
+vspink,hoodie,pink-black-hoodie.jpeg,2018-08-01,,black,print
+stradivarius,long sleeve,stradivarius-green-top.jpg,2023-01-01,,olive,ribbed
+monki,tshirt,monki-purple-tshirt.jpeg,2023-08-14,,purple,mono
+monki,jeans,monki-jeans.jpeg,2020-10-01,,blue,denim
+primark,skirt,primark-brown-skirt.png,2020-10-01,,brown,buttoned
+zara,denim,zara-denim-jacket.jpeg,2023-10-01,,black,studded
+monki,maxi,monki-pinstripe-maxi.jpeg,2023-08-14,2024-06-01,grey,pinstripe
+newlook,lace,newlook-burgundy-lace.jpeg,2019-02-19,,burgundy,lace
+iora,skort,iora-beige-skort.jpg,2022-07-18,,beige,buttoned
+loewe,tshirt,loewe-cream-tshirt.avif,2024-04-01,,cream,mini print
+bershka,sheer,bershka-white-sheer.jpg,2019-04-06,,white,chevron&sheer
+bcbgmaxazria,sleeveless,bcbgmaxazria-floral-top.jpg,2022-05-15,white&pink,print&floral
+lcwaikiki,tshirt,lcwaikiki-black-tshirt.jpg,2024-01-24,black&gold,print&floral
+vspink,crop,vspink-navy-crop.jpeg,2018-08-01,,navy,mini print
+lcwaikiki,crop,lcwaikiki-dragon-crop.jpg,2024-01-11,,red&white,dragon&print
+maxfashion,long sleeve,maxfashion-white-top.jpg,2022-07-09,,white,ribbed
+suisui,skort,suisui-black-skort.jpg,2023-01-23,2024-07-01,black,buttoned
+uniqlo,tshirt,uniqlo-turquoise-tshirt.jpeg,2022-07-09,2024-06-01,turquoise,mono
+hollister,crop,hollister-pink-crop.jpg,2023-04-07,2024-07-01,pink,print
+womenssecret,tshirt,womenssecret-woodstock-tshirt.jpg,2023-07-02,,white,print
+springfield,shorts,springfield-green-shorts.jpeg,2023-07-01,,green,mono
+hm,maxi,hm-navy-maxi.jpeg,2022-07-08,,navy,mono
+monki,fleece,monki-block-fleece.jpeg,2022-04-01,,beige&cream&pink,block
+iora,tshirt,iora-navy-tshirt.jpg,2024-01-07,,navy,squareneck&mono
+hollister,skater,hollister-floral-dress.webp,2022-05-05,,navy,floral
+gap,sleeveless,gap-burgundy-top.jpg,2021-05-16,,burgundy,ribbed
+cottonclub,sheer,cottonclub-green-sheer.jpg,2023-09-24,2024-06-01,,green,print&sheer
+hollister,coat,hollister-navy-parka.webp,2020-07-16,,navy,mono
+bamboobay,sleeveless,bamboobay-white-singlet.jpg,2023-05-06,2024-01-01,white,mini print
+mango,culottes,mango-grey-culottes.jpeg,2023-11-25,,grey,mono
+915,crop,newlook-black-crop.jpg,2017-10-01,dark grey,mono
+monki,tshirt,monki-graphic-tshirt.jpg,2023-05-20,white&blue&pink,print
+voir,tshirt,voir-red-crop.jpeg,2023-01-17,red,mono&squareneck
+monki,sheer,monki-sheer-top.jpeg,2023-05-20,,black,mono
+hollister,trousers,hollister-army-trousers.jpeg,2021-05-01,,khaki,camo
+lcwaikiki,sleeveless,lcwaikiki-pink-top.jpg,2024-01-11,pink,ribbed
+springfield,tshirt,springfield-nacy-tshirt.jpg,2023-07-01,navy,mono
+hm,sheer,hm-sheer-top.webp,2020-10-01,,black,floral&sheer
+tiffosi,tshirt,tiffosi-graphic-tshirt.jpg,2023-07-01,2024-06-01,white&red&green,print
+bershka,midi,bershka-grey-dress.jpeg,2022-12-26,2024-06-01,dark grey,ribbed
+monki,shirt,monki-black-shirt.jpg,2023-05-20,2024-06-01,black&cream,print
+f21,skater,f21-stripe-dress.jpg,2019-05-15,,red&white,stripe
+cw,tshirt,cw-olive-tshirt.jpg,2023-08-13,,olive,mini print
+monki,shirt,monki-snake-shirt.jpg,2019-10-01,grey,print&snake
+hm,sleeveless,hm-black-top.jpg,,2024-06-01,black,mono
+hollister,tshirt,hollister-stripe-tshirt.jpg,,,white&navy,stripe
+newlook,maxi,newlook-black-maxi.jpeg,2021-04-01,,black,mono
+stwd,windbreaker,stwd-windbreaker.jpeg,2021-10-01,,black,holographic&block
+uniqlo,fleece,uniqlo-burgundy-jacket.jpeg,2014-10-01,,burgundy,mono
+hm,midi,hm-navy-dress.webp,2021-04-01,,navy,mono&buttoned
+tcl,maxi,tcl-floral-maxi.jpg,2024-01-09,,navy,floral
+suisui,skort,suisui-black-skort-2.jpg,2024-01-03,,black,buttoned
