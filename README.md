@@ -17,15 +17,17 @@ Due to the nature of filepath referencing, do not attempt running `main.py` from
 ### To run unit tests:
 ```
 export PYTHONPATH=/Documents/GitHub/project-closet:$PYTHONPATH
-pytest --cov=. tests/ --cov-report xml:cov.xml # pytest --cov=. is not enough for Coverage Gutters to display code coverage.
+pytest --cov=. tests/ --cov-report xml:cov.xml 
 ```
+(NB: `pytest --cov=.` is not enough for Coverage Gutters to display code coverage.)
+
 
 Recommended extensions:
 Coverage Gutters
 
 ### Local DB
 
-PostgreSQL is used to store info on clothes. To run locally, ensure this has been installed on Homebrew (Mac), along with PGAdmin. (Credits to https://www.sqlshack.com/setting-up-a-postgresql-database-on-mac/)
+PostgreSQL is used to store info on clothes. To run locally, ensure this has been installed on Homebrew (Mac), along with PGAdmin.
 ```
 brew install postgresql
 brew services start postgresql
@@ -41,9 +43,3 @@ Input: a pic of a new item of clothing, any format
 Will convert to standard JPG/PNG
 And add to image folder db
 Based on categories added
-
-## Ideas
-- Use ML to recognise image inputs: https://www.udacity.com/course/intro-to-tensorflow-for-deep-learning--ud187
-- Use gRPC calls to trigger daily alerts to enter OOTD entry
-- Somehow make matching outfit suggestions
-- Bags & shoes
